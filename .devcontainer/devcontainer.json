@@ -1,0 +1,28 @@
+{
+	"name": "svelte",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"settings": {
+		"telemetry.telemetryLevel": "off",
+		"telemetry.enableCrashReporter": false,
+		"terminal.integrated.shell.linux": "/bin/bash",
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSave": {
+			"source.fixAll.eslint": true
+		},
+		"[typescript]": {
+			"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+		},
+		"eslint.validate": [
+			"javascript"
+		],
+		"eslint.format.enable": true,
+		"svelte.enable-ts-plugin": true,
+		"svelte.plugin.svelte.note-new-transformation": false
+	},
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"svelte.svelte-vscode"
+	]
+}

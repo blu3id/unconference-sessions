@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unconference Session Grid</title>
+  </head>
+  <body>
+    <style>
+      :root {
+        --years:#e7e7e7;                /* BG colour of year navigation */
+        --accent:#a9a9a9;               /* Accent colour of year navigation */
+        --titles:#d3d3d3;               /* BG colour session heading */
+        --titles-color:#000000;         /* Font colour of session heading */
+        --titles-timing:#6e6e6e;        /* BG colour timing only session heading */
+        --titles-timing-color:#ffffff;  /* Font colour of timing only session heading */
+      }
+    </style>
+    <script>
+      document.App = {
+        name: 'Unconference Name',
+        branding: {
+          logo: '/logo.png',
+          subheading: false,
+          center: true
+        },
+        sessionData: 'https://docs.google.com/<spreasheet-url>/export?format=csv',
+        // sessionData: './data.csv',
+        refreshTime: 15000 // In milliseconds (set to 0 to disable)
+      }
+    </script>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+

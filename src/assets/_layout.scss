@@ -1,0 +1,395 @@
+:root {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    color: #333;
+    font-family: sans-serif;
+    font-weight: normal;
+    word-wrap: break-word;
+}
+
+a {
+    color: #4078c0;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+header {
+    margin: 0;
+    padding: 0.67em 0.5rem;
+
+    &.center {
+        text-align: center;
+    }
+
+    &.no-subheading {
+        h2 {
+            display: none;
+        }
+    }
+
+    &.logo {
+        padding: 0.67em 0.5rem 0 0.5rem;
+
+        h1 {
+            display: none;
+        }
+
+        h2 {
+            margin: 0 0 0.2em 0;
+        }
+
+        img {
+            height: 70px;
+            display: inline;
+        }
+    }
+
+    h1 {
+        display: inline;
+        vertical-align: middle;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        margin: 0.2em 0 0 0;
+    }
+
+    img {
+        display: none;
+    }
+}
+
+#app>footer {
+    text-align: center;
+    margin: 0 auto;
+    padding: 1rem 0.5rem 2rem;
+    font-size: 0.8em;
+    line-height: 1.4;
+    color: #999;
+}
+
+@keyframes ellipsis {
+    to {
+        width: 1.25em;
+    }
+}
+
+@keyframes loader {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(0.95);
+    }
+
+    50% {
+        transform: scale(0.85);
+    }
+
+    75% {
+        transform: scale(0.95);
+    }
+}
+
+main {
+    margin: 0 auto;
+    padding: 1rem 0.5rem;
+    position: relative;
+
+    >span.error {
+        display: block;
+        margin: 2em auto;
+        font-weight: 600;
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    >span.loading {
+        display: block;
+        margin: 2em auto;
+        font-weight: 600;
+        font-size: 1.5em;
+        text-align: center;
+
+        &:after {
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: bottom;
+            animation: ellipsis steps(4, end) 900ms infinite;
+            content: "\2026";
+            width: 0px;
+            position: fixed;
+        }
+    }
+}
+
+.past-years {
+    border-bottom: 2px solid #eee;
+    background: var(--years, #e7e7e7);
+    font-size: 0.9em;
+    position: sticky;
+    top: 0px;
+    z-index: 50;
+    /*box-shadow: 0 2px 5px rgb(0 0 0 / 10%);*/
+
+    ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    li {
+        display: inline-block;
+        border-bottom: 3px solid transparent;
+        padding: 12px 12px 8px;
+        color: #999;
+        text-align: center;
+        margin-right: 0.5em;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: #000000;
+        }
+
+        &.active {
+            border-bottom: 3px solid var(--accent, #a9a9a9);
+            color: #000000;
+        }
+
+        &.timer {
+            margin-left: auto;
+            padding: 0 8px;
+            border: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            &.loading div {
+                animation: loader 2s linear infinite;
+            }
+
+            &.error.loading div {
+                animation: none;
+            }
+
+            &.error {
+                cursor: default;
+
+                div {
+                    background: svg-url($circle-xmark) no-repeat center center;
+
+                    svg {
+                        display: none;
+                    }
+                }
+            }
+
+            &.paused {
+
+                div {
+                    background: svg-url($circle-pause) no-repeat center center;
+
+                    svg {
+                        display: none;
+                    }
+                }
+            }
+
+
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+section {
+    h2 {
+        display: block;
+        background: var(--titles, lightgrey);
+        color: var(--titles-color, #000000);
+        font-size: 20px;
+        padding: 0.2rem 0.5rem;
+        margin-bottom: 0.5rem;
+        font-family: sans-serif;
+        font-weight: bold;
+
+        &.timing {
+            background: var(--titles-timing, #6e6e6e);
+            color: var(--titles-timing-color, #ffffff);
+        }
+    }
+
+    >div {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        padding: 0 0.5rem 0.5rem;
+
+        article {
+            min-width: 200px;
+            min-height: 100px;
+            border: 1px solid #bbb;
+            border-radius: 2px;
+            padding: 0.5rem;
+            margin: 0 0.5rem 0 0;
+            box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
+            /*flex-grow: 1;*/
+            flex: 1 1 0px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h3 {
+                font-size: 1em;
+                line-height: 20px;
+                margin: 0;
+
+                span {
+                    font-style: italic;
+                    color: var(--accent, #a9a9a9);
+                }
+            }
+
+            div.lead {
+                font-size: 0.9em;
+                margin: 0 0 0.5rem;
+
+                ul {
+                    display: inline;
+                    margin: 0;
+                    padding: 0;
+                }
+
+                li {
+                    display: inline;
+                    margin: 0;
+                    white-space: nowrap;
+
+                    &::after {
+                        content: ",";
+                    }
+
+                    &:last-child::after {
+                        content: "";
+                    }
+                }
+            }
+
+            footer {
+                margin: auto 0 0 0;
+                font-size: 0.9em;
+
+                dl {
+                    margin: 0;
+                    /*display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row;*/
+
+                    div {
+                        display: inline;
+                        margin-right: 2px;
+
+                        dt,
+                        dd {
+                            display: inline;
+                            margin: 0;
+                        }
+
+                        dt {
+                            display: none;
+                        }
+
+                        dd::before {
+                            content: " ";
+                        }
+
+                        dd::before,
+                        &.notes dd a,
+                        &.hashtag dd a {
+                            background-size: 14px;
+                            margin: 0 2px 4px 0;
+                            width: 14px;
+                            height: 14px;
+                            display: inline-block;
+                            vertical-align: middle;
+                            color: transparent !important;
+                            font-size: 0;
+                        }
+
+                        &.room dd::before {
+                            background: svg-url($location-dot) no-repeat center center;
+                        }
+
+                        &.capacity dd::before {
+                            background: svg-url($users) no-repeat center center;
+                        }
+
+                        &.hashtag {
+                            float: right;
+
+                            dd {
+                                &::before {
+                                    display: none;
+                                }
+
+                                a {
+                                    background: svg-url($hashtag) no-repeat center center;
+                                    margin: 0 -2px 4px 4px;
+                                }
+                            }
+                        }
+
+                        &.notes {
+                            float: right;
+
+                            dd {
+                                &::before {
+                                    display: none;
+                                }
+
+                                a {
+                                    background: svg-url($file-lines) no-repeat center center;
+                                    background-size: 10px;
+                                    margin: 1px 0 4px 4px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

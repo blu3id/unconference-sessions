@@ -1,0 +1,33 @@
+{
+  "name": "unconference-sessions",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "prettier": "prettier --write --ignore-path .gitignore \"!package-lock.json\" --plugin-search-dir=. **/*.{json,css,js,ts,svelte}"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^1.0.2",
+    "@tsconfig/svelte": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-svelte3": "^4.0.0",
+    "svelte": "^3.49.0",
+    "svelte-check": "^2.8.1",
+    "svelte-preprocess": "^4.10.7",
+    "tslib": "^2.4.0",
+    "typescript": "^4.8.3",
+    "vite": "^3.1.2"
+  },
+  "dependencies": {
+    "@vanillaes/csv": "^3.0.1",
+    "sass": "^1.54.9",
+    "svelte": "^3.49.0",
+    "svelte-spa-router": "^3.3.0"
+  }
+}
