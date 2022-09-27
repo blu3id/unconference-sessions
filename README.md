@@ -24,6 +24,17 @@ This is a TypeScript [Svelte](https://svelte.dev/) app (bundled by [Vite](https:
         --titles-timing:#6e6e6e;        /* BG colour timing only session heading */
         --titles-timing-color:#ffffff;  /* Font colour of timing only session heading */
       }
+      @media (prefers-color-scheme: dark) {
+        :root {                         /* Colours used when in dark-mode */
+          --years: #292a2d;
+          --accent: #eff1f2;
+          --titles: #292a2d;
+          --titles-color: #eff1f2;
+          --titles-timing: #6e6e6e80;
+          --titles-timing-color: #eff1f2;
+          --icon-color: #9aa0a6;
+        }
+      }
     </style>
     <script>
       document.App = {
@@ -44,16 +55,16 @@ This is a TypeScript [Svelte](https://svelte.dev/) app (bundled by [Vite](https:
 
 ### Mobile
 
-<table>
+<table style="table-layout:fixed;width:100%">
   <tr>
     <th style="text-align:center">Unbranded</th>
     <th style="text-align:center">Simple Branding</th>
     <th style="text-align:center">UK Health Camp</th>
   </tr>
   <tr>
-    <td><img title="Unbranded Screenshots" src="screenshots/mobile_unbranded.png" width="200"></td>
-    <td><img title="Simple Branding Screenshots" src="screenshots/mobile_branded.png" width="200"></td>
-    <td><img title="UK Health Camp Screenshots" src="screenshots/mobile_ukhealthcamp.png" width="200"></td>
+    <td style="text-align:center"><img title="Unbranded Screenshots" src="screenshots/mobile_unbranded.png" width="200"></td>
+    <td style="text-align:center"><img title="Simple Branding Screenshots" src="screenshots/mobile_branded.png" width="200"></td>
+    <td style="text-align:center"><img title="UK Health Camp Screenshots" src="screenshots/mobile_ukhealthcamp.png" width="200"></td>
   </tr>
 </table>
 

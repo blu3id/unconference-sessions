@@ -9,6 +9,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+
+    --icon-location-dot: #{svg-url($location-dot)};
+    --icon-users: #{svg-url($users)};
+    --icon-hashtag: #{svg-url($hashtag)};
+    --icon-file-lines: #{svg-url($file-lines)};
+    --icon-circle-xmark: #{svg-url($circle-xmark)};
+    --icon-circle-pause: #{svg-url($circle-pause)};
+    --icon-color: #000;
 }
 
 body {
@@ -203,7 +211,9 @@ main {
                 cursor: default;
 
                 div {
-                    background: svg-url($circle-xmark) no-repeat center center;
+                    background-color: red;
+                    -webkit-mask: var(--icon-circle-xmark) no-repeat center center;
+                    mask: var(--icon-circle-xmark) no-repeat center center;
 
                     svg {
                         display: none;
@@ -214,7 +224,9 @@ main {
             &.paused {
 
                 div {
-                    background: svg-url($circle-pause) no-repeat center center;
+                    background-color: var(--icon-color);
+                    -webkit-mask: var(--icon-circle-pause) no-repeat center center;
+                    mask: var(--icon-circle-pause) no-repeat center center;
 
                     svg {
                         display: none;
@@ -350,11 +362,15 @@ section {
                         }
 
                         &.room dd::before {
-                            background: svg-url($location-dot) no-repeat center center;
+                            background-color: var(--icon-color);
+                            -webkit-mask: var(--icon-location-dot) no-repeat center center;
+                            mask: var(--icon-location-dot) no-repeat center center;
                         }
 
                         &.capacity dd::before {
-                            background: svg-url($users) no-repeat center center;
+                            background-color: var(--icon-color);
+                            -webkit-mask: var(--icon-users) no-repeat center center;
+                            mask: var(--icon-users) no-repeat center center;
                         }
 
                         &.hashtag {
@@ -366,7 +382,9 @@ section {
                                 }
 
                                 a {
-                                    background: svg-url($hashtag) no-repeat center center;
+                                    background-color: var(--icon-color);
+                                    -webkit-mask: var(--icon-hashtag) no-repeat center center;
+                                    mask: var(--icon-hashtag) no-repeat center center;
                                     margin: 0 -2px 4px 4px;
                                 }
                             }
@@ -381,8 +399,11 @@ section {
                                 }
 
                                 a {
-                                    background: svg-url($file-lines) no-repeat center center;
-                                    background-size: 10px;
+                                    background-color: var(--icon-color);
+                                    -webkit-mask: var(--icon-file-lines) no-repeat center center;
+                                    mask: var(--icon-file-lines) no-repeat center center;
+                                    -webkit-mask-size: 10px;
+                                    mask-size: 10px;
                                     margin: 1px 0 4px 4px;
                                 }
                             }
@@ -391,5 +412,48 @@ section {
                 }
             }
         }
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --years: #292a2d;
+        --accent: #eff1f2;
+        --titles: #292a2d;
+        --titles-color: #eff1f2;
+        --titles-timing: #6e6e6e80;
+        --titles-timing-color: #eff1f2;
+        --icon-color: #9aa0a6;
+    }
+
+    body {
+        color: #9aa0a6;
+        background-color: #1f2125;
+    }
+
+    header {
+        color: #eff1f2;
+    }
+
+    a {
+        color: #8ab4f8;
+    }
+
+    .past-years {
+        border-color: #57595d;
+
+        li {
+
+            &.active,
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    section>div article {
+        border: 1px solid #282a2c;
+        box-shadow: 0 2px 5px #0000005e;
+        background: #282a2c;
     }
 }
