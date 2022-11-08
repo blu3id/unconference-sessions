@@ -15,6 +15,18 @@
         --titles-timing:#6e6e6e;        /* BG colour timing only session heading */
         --titles-timing-color:#ffffff;  /* Font colour of timing only session heading */
       }
+      
+      @media (prefers-color-scheme: dark) {
+        :root {                           /* Colours used when in dark-mode */
+          --years: #292a2d;
+          --accent: #eff1f2;
+          --titles: #292a2d;
+          --titles-color: #eff1f2;
+          --titles-timing: #6e6e6e80;
+          --titles-timing-color: #eff1f2;
+          --icon-color: #9aa0a6;
+        }
+      }
     </style>
     <script>
       document.App = {

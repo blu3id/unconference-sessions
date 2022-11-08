@@ -101,6 +101,7 @@ class SessionsStore {
         const records: Array<SessionData> = [];
         parsed.shift();
         parsed.forEach((row: SessionDataArray) => {
+          if (row[5] === undefined || row[5] === '') return;
           records.push({
             year: row[0],
             time: row[1],
